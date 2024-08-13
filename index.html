@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Information</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .container {
+            margin-top: 20px;
+        }
+
+        .section {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .section:hover {
+            transform: scale(1.02);
+        }
+
+        .section h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        ul ul {
+            list-style-type: circle;
+        }
+
+        .contact-info {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #e7f3ff;
+            border-left: 6px solid #007bff;
+        }
+
+        .contact-info a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .highlight {
+            background-color: #ffeb3b;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+
+        .advance-info, .chat-info, .issue-info, .report-info {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            color: #fff;
+        }
+
+        .advance-info {
+            background-color: #ff9800;
+        }
+
+        .chat-info {
+            background-color: #8bc34a;
+        }
+
+        .issue-info {
+            background-color: #f44336;
+        }
+
+        .report-info {
+            background-color: #3f51b5;
+        }
+
+        .lang-switcher {
+            margin-bottom: 20px;
+            text-align: right;
+        }
+
+        .lang-switcher button {
+            margin-right: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+
+        @media (max-width: 768px) {
+            .lang-switcher {
+                text-align: center;
+            }
+            .lang-switcher button {
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Language Switcher -->
+        <div class="lang-switcher">
+            <button id="lang-en" class="btn btn-primary">English</button>
+            <button id="lang-ur" class="btn btn-secondary">Urdu</button>
+            <button id="lang-cn" class="btn btn-danger">Chinese</button>
+        </div>
+
+        <!-- Homepage Section -->
+        <div class="section">
+            <h2 data-en="Welcome to Our Company" data-ur="ہماری کمپنی میں خوش آمدید" data-cn="欢迎来到我们公司">Welcome to Our Company <h1>Money-Point</h1> </h2>
+            <p data-en="Explore more about our company, employees, and investors." data-ur="ہماری کمپنی، ملازمین، اور سرمایہ کاروں کے بارے میں مزید جانیں۔" data-cn="了解更多关于我们公司、员工和投资者的信息。">
+                Explore more about our company, employees.
+            </p>
+            <p class="instructions" data-en="For employee information, click on Employee Section. For investor information, click on Owner/Investor Section." data-ur="ملازمین کی معلومات کے لیے، ملازمین کے سیکشن پر کلک کریں۔ سرمایہ کاروں کی معلومات کے لیے، مالک/سرمایہ کار کے سیکشن پر کلک کریں۔" data-cn="有关员工信息，请单击员工部分。有关投资者信息，请单击所有者/投资者部分。">
+                For employee information, click on Employee Section.
+            <button id="employee-btn" class="btn btn-success" data-en="Employee Section" data-ur="ملازمین کا سیکشن" data-cn="员工部分">Employee Section</button>
+            <!-- <button id="owner-btn" class="btn btn-info" data-en="Owner/Investor Section" data-ur="مالک/سرمایہ کار سیکشن" data-cn="所有者/投资者部分">Owner/Investor Section</button> -->
+        </div>
+
+        <!-- Employee Section (Hidden by default) -->
+        <div id="employee-section" class="section" style="display: none;">
+            <h2 data-en="Employee Information" data-ur="ملازمین کی معلومات" data-cn="员工信息">Employee Information</h2>
+            <p data-en="Please enter the code to access employee information." data-ur="ملازمین کی معلومات تک رسائی کے لیے کوڈ درج کریں۔" data-cn="请输入代码以访问员工信息。">
+                Please enter the code to access employee information.
+            </p>
+            <input type="password" id="employee-code" class="form-control mb-3" placeholder="Enter Code">
+            <button id="employee-access-btn" class="btn btn-success" data-en="Access Employee Information" data-ur="ملازمین کی معلومات تک رسائی" data-cn="访问员工信息">Access Employee Information</button>
+
+            <div id="employee-info" style="display: none;">
+                <h3 data-en="Employee Information" data-ur="ملازمین کی معلومات" data-cn="员工信息">Employee Information</h3>
+                
+                <h4 data-en="1. Contact Information" data-ur="1. رابطے کی معلومات" data-cn="1. 联系信息">1. Contact Information</h4>
+                <p>For various responsibilities, please contact the designated person:</p>
+                <ul>
+                    <li class="contact-info">
+                        <span class="highlight">General Issues:</span> 
+                        Contact <a href="https://t.me/Jutt79" target="_blank">Sheraz</a> on Telegram.
+                    </li>
+                    <li class="contact-info">
+                        <span class="highlight">Salary Advances:</span> 
+                        Contact <a href="https://t.me/Mr_Nobody49" target="_blank">Honey</a> on Telegram. 
+                        Note: Maximum $100 advance is allowed.
+                    </li>
+                    <li class="contact-info">
+                        <span class="highlight">Chat or Customer Issues:</span> 
+                        Contact <a href="https://t.me/Jattg13" target="_blank">Jutt</a> or <a href="https://t.me/Jutt79" target="_blank">Waleed</a> on Telegram.
+                    </li>
+                </ul>
+                
+                <h4 data-en="2. Salary Advances" data-ur="2. تنخواہ کے ایڈوانس" data-cn="2. 薪金预支">2. Salary Advances</h4>
+                <div class="advance-info">
+                    <p>You can request a salary advance of up to $100 by contacting Honey on Telegram. Click the button below to contact him directly:</p>
+                    <a href="https://t.me/Mr_Nobody49" target="_blank" class="btn btn-light">Request Advance</a>
+                </div>
+                
+                <h4 data-en="3. Chat and Customer Handling" data-ur="3. چیٹ اور کسٹمر ہینڈلنگ" data-cn="3. 聊天和客户处理">3. Chat and Customer Handling</h4>
+                <div class="chat-info">
+                    <p>If you encounter any issues with customer chats, or need advice on how to handle a customer, please contact Jutt or Waleed. They will guide you on:</p>
+                    <ul>
+                        <li>How to deal with customers.</li>
+                        <li>When to offer combos to customers.</li>
+                        <li>When to contact customers.</li>
+                    </ul>
+                    <a href="https://t.me/Jattg13" target="_blank" class="btn btn-light">Contact Jutt</a>
+                    <a href="https://t.me/Jutt79" target="_blank" class="btn btn-light">Contact Waleed</a>
+                </div>
+                
+                <h4 data-en="4. Reporting Issues" data-ur="4. مسائل کی اطلاع دینا" data-cn="4. 报告问题">4. Reporting Issues</h4>
+                <div class="issue-info">
+                    <p>If you have any technical issues, personal concerns, or need to discuss anything regarding your work or living conditions, contact Sheraz:</p>
+                    <ul>
+                        <li>Computer problems.</li>
+                        <li>Food and timetable discussions.</li>
+                        <li>Holiday requests and other personal matters.</li>
+                    </ul>
+                    <a href="https://t.me/Jutt79" target="_blank" class="btn btn-light">Contact Sheraz</a>
+                </div>
+                
+                <h4 data-en="5. Reporting and Suggestions" data-ur="5. رپورٹنگ اور تجاویز" data-cn="5. 报告和建议">5. Reporting and Suggestions</h4>
+                <div class="report-info">
+                    <p>If you have any suggestions, or need to report a problem, please use the following group:</p>
+                    <a href="https://t.me/+osyRkiXbF1VkNmY9" target="_blank" class="btn btn-light">Report Issues and Suggestions</a>
+                </div>
+                
+                <h4 data-en="6. Important Rules" data-ur="6. اہم قوانین" data-cn="6. 重要规则">6. Important Rules</h4>
+                <ul>
+                    <li>Do not share your location with anyone in Cambodia.</li>
+                    <li>Do not drink alone with Cambodian girls for the first two months.</li>
+                    <li>Do not log into work-related systems on personal devices.</li>
+                    <li>Do not delete or block customer chats without prior approval.</li>
+                    <li>Follow the daily work schedule and contribute to a positive work environment.</li>
+                    <li>All employees should work as a team, sharing responsibilities and tasks.</li>
+                    <li>Keep your passport with Honey for security purposes. If you wish to keep it yourself, provide a video statement confirming your decision.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="lang-switcher">
+            <button id="lang-en" class="btn btn-primary">English</button>
+            <button id="lang-ur" class="btn btn-secondary">Urdu</button>
+            <button id="lang-cn" class="btn btn-danger">Chinese</button>
+        </div>
+
+        <!-- Employee Information Section -->
+        <div id="employee-info" class="section">
+            <h3 data-en="Employee Information" data-ur="ملازمین کی معلومات" data-cn="员工信息">Employee Information</h3>
+            
+            <h4 data-en="1. Equipment and Tools Provided" data-ur="1. فراہم کردہ سامان اور اوزار" data-cn="1. 提供的设备和工具">1. Equipment and Tools Provided</h4>
+            <ul>
+                <li>Each employee will be provided with a computer.</li>
+                <li>Two premium Telegram accounts will be provided.</li>
+                <li>WhatsApp will be provided after the first two months.</li>
+                <li>Dating apps will be provided, but they won't have premium features for the first two months.</li>
+                <li>The workplace and residence will be the same for the first two months.</li>
+                <li>For any issues, employees should contact Shiraz, who will resolve their problems.</li>
+            </ul>
+            
+            <h4 data-en="2. Salary and Commission" data-ur="2. تنخواہ اور کمیشن" data-cn="2. 薪水和佣金">2. Salary and Commission</h4>
+            <ul>
+                <li>The basic salary is $800 with no deductions.</li>
+                <li>Salaries will be paid in full every 15th of the month.</li>
+                <li>Commission is earned after depositing $4,000:
+                    <ul>
+                        <li>8% commission up to $10,000.</li>
+                        <li>10% commission from $10,000 to $20,000.</li>
+                        <li>15% commission from $20,000 to $50,000.</li>
+                        <li>18% commission above $50,000.</li>
+                    </ul>
+                </li>
+                <li>If an employee meets their target in the first month, their salary will be increased to $1,000 for the next two months.</li>
+            </ul>
+
+            <h4 data-en="3. Rules and Regulations" data-ur="3. قوانین اور ضوابط" data-cn="3. 规章制度">3. Rules and Regulations</h4>
+            <ul>
+                <li>Do not share your location with anyone in Cambodia, especially not with local residents.</li>
+                <li>Do not drink alone with Cambodian girls for the first two months.</li>
+                <li>Do not log into any work-related systems (e.g., Telegram, WhatsApp) on personal devices.</li>
+                <li>Do not delete or block customer chats without prior approval.</li>
+                <li>Refrain from posting any personal or work-related content online without permission.</li>
+            </ul>
+
+            <h4 data-en="4. Working Hours and Breaks" data-ur="4. کام کے اوقات اور وقفے" data-cn="4. 工作时间和休息时间">4. Working Hours and Breaks</h4>
+            <ul>
+                <li>Work hours are from 4 PM to 4 AM, with a total of 12 working hours.</li>
+                <li>Employees are allowed a 2-hour break, which can be divided into two 1-hour breaks.</li>
+                <li>During breaks, employees should handle all personal tasks, including meals and calls.</li>
+            </ul>
+
+            <h4 data-en="5. Team Incentives and Bonuses" data-ur="5. ٹیم کے مراعات اور بونس" data-cn="5. 团队奖励和奖金">5. Team Incentives and Bonuses</h4>
+            <ul>
+                <li>If the team deposits exceed $10,000, the company will host a drinking party.</li>
+                <li>If the team deposits exceed $15,000, the company will arrange a KTV party.</li>
+                <li>If the team deposits exceed $25,000 to $50,000, the company will cover additional costs, including certain personal expenses.</li>
+            </ul>
+
+            <h4 data-en="6. Meals Provided" data-ur="6. فراہم کردہ کھانا" data-cn="6. 提供的餐食">6. Meals Provided</h4>
+            <ul>
+                <li>Breakfast includes bread, jam, and eggs (2-4 slices).</li>
+                <li>Lunch and dinner include rice and vegetables, or other local dishes.</li>
+                <li>All meals will be provided by the company.</li>
+            </ul>
+
+            <h4 data-en="7. Employee Conduct and Responsibilities" data-ur="7. ملازم کا طرز عمل اور ذمہ داریاں" data-cn="7. 员工行为和责任">7. Employee Conduct and Responsibilities</h4>
+            <ul>
+                <li>Employees are responsible for their own conduct and should adhere to company rules.</li>
+                <li>Take the job seriously as it requires trust and reliability.</li>
+                <li>Build and maintain trust with the company and your team.</li>
+                <li>Reach out to management for any issues or concerns.</li>
+            </ul>
+            <h4 data-en="8. Target" data-ur="8. ہدف" data-cn="8. 目标">8. <span class="highlight">Target</span></h4>
+            <ul>
+                <li><strong>Daily Target:</strong> Each employee must ADD at least 5 customers per day.</li>
+                <li><strong>Weekly Target:</strong> Each employee is responsible for introducing at least 10 customers within a week.</li>
+                <li>Your performance will be reviewed weekly to ensure targets are being met.</li>
+                <li>There will be no issues with your commission and salary as long as targets are achieved.</li>
+                <li><strong>Payment Target:</strong> Each employee must ensure that three customers pay their dues within a week. Out of these, at least two customers must make payments, which is compulsory.</li>
+                <li>This target is crucial, and it is important to remember it and strive to achieve it.</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Language Switching Functionality
+        document.getElementById('lang-en').addEventListener('click', function() {
+            switchLanguage('en');
+        });
+
+        document.getElementById('lang-ur').addEventListener('click', function() {
+            switchLanguage('ur');
+        });
+
+        document.getElementById('lang-cn').addEventListener('click', function() {
+            switchLanguage('cn');
+        });
+
+        function switchLanguage(lang) {
+            document.querySelectorAll('[data-en]').forEach(element => {
+                element.innerHTML = element.getAttribute(`data-${lang}`);
+            });
+        }
+
+        // Show/Hide Employee Section
+        document.getElementById('employee-btn').addEventListener('click', function() {
+            document.getElementById('employee-section').style.display = 'block';
+        });
+
+        // Show Employee Information after code input
+        document.getElementById('employee-access-btn').addEventListener('click', function() {
+            const code = document.getElementById('employee-code').value;
+            if (code === '0000') {
+                document.getElementById('employee-info').style.display = 'block';
+            } else {
+                alert('Invalid code!');
+            }
+        });
+    </script>
+
+</body>
+</html>
